@@ -37,13 +37,13 @@ Route::prefix('user')->group(function () {
 
 Route::prefix('order')->group(function () {
     Route::post('submit', [OrderController::class, 'submit']);
-    Route::get('orders/user/all', [OrderController::class, 'allUser']);
+    Route::post('orders/all/user', [OrderController::class, 'allUser']);
     Route::post('status/pay', [OrderController::class, 'statusSetPay']);
     Route::post('status/abort', [OrderController::class, 'statusSetAbort']);
     Route::post('status/done', [OrderController::class, 'statusSetDone']);
     Route::get('orders/all/pay', [OrderController::class, 'allByPay']);
     Route::get('orders/all', [OrderController::class, 'all']);
-    Route::get('/', [OrderController::class, 'item']);
+    Route::post('/', [OrderController::class, 'item']);
 });
 
 Route::prefix('comment')->group(function () {
